@@ -1,1 +1,150 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Administrasi Kurikulum | SMK ALA LABASE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --secondary: #0ea5e9;
+            --dark: #0f172a;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .logo-aura {
+            width: 120px;
+            height: 120px;
+            background: rgba(79, 70, 229, 0.2);
+            border-radius: 40px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            filter: blur(40px);
+            animation: pulse 3s infinite;
+        }
+
+        .loader-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            padding: 3rem;
+            border-radius: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            max-width: 400px;
+            width: 90%;
+            position: relative;
+            z-index: 10;
+        }
+
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(79, 70, 229, 0.1);
+            border-top: 4px solid var(--primary);
+            border-right: 4px solid var(--secondary);
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            animation: spin 1s linear infinite;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: -0.025em;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, #ffffff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p {
+            font-size: 0.75rem;
+            color: #94a3b8;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 2rem;
+        }
+
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: rgba(79, 70, 229, 0.1);
+            padding: 0.75rem 1.5rem;
+            border-radius: 1rem;
+            font-size: 0.85rem;
+            color: #818cf8;
+            font-weight: 600;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; width: 120px; height: 120px; }
+            50% { opacity: 0.8; width: 200px; height: 200px; }
+        }
+
+        .blink {
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+    </style>
+</head>
+<body>
+    <div class="logo-aura"></div>
+    <div class="container">
+        <div class="loader-card">
+            <div class="spinner"></div>
+            <h1>HUB DATA</h1>
+            <p>SMK ALA LABASE OFFICIAL</p>
+            
+            <div class="status">
+                <span class="blink">●</span>
+                Menyambungkan ke Sistem...
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // TARGET URL Google Apps Script Bapak
+        const targetURL = "https://script.google.com/macros/s/AKfycbynTr8RAr2tufD_nCcyHCBFo3C3Hx8m-IEu9YEoVuxgcKqbf1Nm6z299IVHMoick58/exec";
+
+        // Redirect otomatis setelah 2 detik (untuk memberikan kesan loading yang elegan)
+        setTimeout(() => {
+            window.location.replace(targetURL);
+        }, 2200);
+    </script>
+</body>
+</html>
